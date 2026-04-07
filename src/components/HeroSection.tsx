@@ -74,16 +74,7 @@ export default function HeroSection() {
   const heroImage = data?.heroImage;
 
   // Default description when no data
-  const defaultDescription = (
-    <>
-      少年マンガからラブコメまで、
-      <br />
-      <span style={{ color: "var(--cp-red)" }}>圧倒的画力</span>
-      でキャラクターに魂を込める。
-      <br />
-      AIとの融合で新時代のマンガを創造中！
-    </>
-  );
+  const defaultDescription = "sdasdsadasdas";
 
   return (
     <section

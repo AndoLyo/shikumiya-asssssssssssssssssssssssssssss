@@ -261,21 +261,7 @@ export default function AboutSection() {
                   className="text-sm font-bold leading-relaxed whitespace-pre-wrap"
                   style={{ color: "var(--cp-text)" }}
                 >
-                  {bioText || (
-                    <>
-                      はじめまして、YUKIです！
-                      <br />
-                      少年誌でのデビュー経験を持つプロの漫画家。
-                      <br />
-                      アクションから日常系まで幅広いジャンルを手掛け、
-                      <span style={{ color: "var(--cp-red)", fontWeight: 900 }}>
-                        AIとの協働
-                      </span>
-                      で制作スピードを3倍に！
-                      <br />
-                      あなたの物語を最高のビジュアルで表現します。
-                    </>
-                  )}
+                  {bioText || "xdscvSDVsvszdvsdvszvs"}
                 </p>
 
                 {/* Data panels within speech bubble */}

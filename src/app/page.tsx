@@ -2,12 +2,13 @@
 
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import GallerySection from "@/components/GallerySection";
+import WorksSection from "@/components/WorksSection";
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 import FloatingParticles from "@/components/FloatingParticles";
+import MangaEffects from "@/components/MangaEffects";
 import { SiteDataProvider } from "@/lib/SiteDataContext";
 import type { SiteData } from "@/lib/site-data";
 
@@ -19,7 +20,6 @@ const siteData: SiteData = {
   profileImage: "/images/about.webp",
   bio: "xdscvSDVsvszdvsdvszvs",
   motto: "SDSDVsd",
-  email: "ryoya112@outlook.com",
   tools: ["SDvSvSADv", "ADSvADSDv"],
   works: [
     { src: "/images/work_02.webp", title: "作品 01" },
@@ -37,12 +37,13 @@ const siteData: SiteData = {
 export default function Home() {
   return (
     <SiteDataProvider data={siteData}>
-      <FloatingParticles />
+      <FloatingParticles count={50} />
+      <MangaEffects />
       <ScrollProgress />
       <Header />
       <main id="main-content">
         <HeroSection />
-        <GallerySection />
+        <WorksSection />
         <AboutSection />
         <ContactSection />
       </main>

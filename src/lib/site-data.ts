@@ -11,6 +11,7 @@ export type SiteData = {
   tools?: string[];
   stats?: string[];
   skills?: string[];
+  email?: string;
   works: { src: string; title: string }[];
   snsX?: string;
   snsInstagram?: string;

@@ -7,9 +7,8 @@ import { useSiteData } from "./SiteDataContext";
 import type { SiteData } from "@/lib/site-data";
 
 const defaultSocialLinks = [
-  { icon: AtSign, label: "Twitter / X", handle: "@yuki_comics", color: "var(--cp-blue)" },
-  { icon: Camera, label: "Instagram", handle: "@yuki.manga", color: "var(--cp-red)" },
-  { icon: Globe, label: "Portfolio", handle: "yuki-comics.jp", color: "var(--cp-yellow)" },
+  { icon: AtSign, label: "X (Twitter)", handle: "@sora_manga_test", color: "var(--cp-blue)" },
+  { icon: Camera, label: "Instagram", handle: "@sora_manga_test", color: "var(--cp-red)" },
 ];
 
 function buildSocialLinks(data: SiteData) {
