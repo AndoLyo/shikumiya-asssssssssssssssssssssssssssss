@@ -3,19 +3,15 @@
 import { motion } from "framer-motion";
 import { useSiteData } from "./SiteDataContext";
 
-const skills = [
-  { label: "キャラクターデザイン", value: 95, color: "var(--cp-red)" },
-  { label: "背景・パース", value: 82, color: "var(--cp-blue)" },
-  { label: "デジタルペイント", value: 90, color: "var(--cp-yellow)" },
-  { label: "AI画像生成", value: 88, color: "var(--cp-red)" },
-  { label: "ストーリー構成", value: 78, color: "var(--cp-blue)" },
-];
-
 const onomatopoeia = [
   { text: "ドドド", top: "8%", left: "2%", rotate: -15, color: "var(--cp-red)", size: "1.6rem" },
   { text: "ゴゴゴ", bottom: "12%", right: "3%", rotate: 12, color: "var(--cp-border)", size: "1.4rem" },
   { text: "ビリビリ", top: "55%", left: "1%", rotate: -8, color: "var(--cp-blue)", size: "1.1rem" },
   { text: "ズキュン", top: "20%", right: "2%", rotate: 10, color: "var(--cp-yellow)", size: "1.2rem" },
+  { text: "ワクワク", top: "35%", left: "3%", rotate: -12, color: "var(--cp-red)", size: "1.3rem" },
+  { text: "キラキラ", bottom: "25%", right: "2%", rotate: 15, color: "var(--cp-yellow)", size: "1.5rem" },
+  { text: "メラメラ", top: "70%", left: "1%", rotate: -5, color: "var(--cp-red)", size: "1.2rem" },
+  { text: "バチバチ", bottom: "40%", right: "4%", rotate: 8, color: "var(--cp-blue)", size: "1.1rem" },
 ];
 
 function SkillBar({
