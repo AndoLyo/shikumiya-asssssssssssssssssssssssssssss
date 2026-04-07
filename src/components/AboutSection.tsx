@@ -93,7 +93,7 @@ export default function AboutSection() {
   const profileImage = data?.profileImage;
   const bioText = data?.bio || "";
   const mottoText = data?.motto || "";
-  const artistName = data?.artistName || "YUKI";
+  const artistName = data?.artistName || "Sora";
 
   return (
     <section

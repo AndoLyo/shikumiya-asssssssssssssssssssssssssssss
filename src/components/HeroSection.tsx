@@ -68,7 +68,7 @@ function StarBurst({
 
 export default function HeroSection() {
   const data = useSiteData();
-  const artistName = data?.artistName || "YUKI";
+  const artistName = data?.artistName || "Sora";
   const subtitleText = data?.subtitle || "マンガ作家 ＆ イラストレーター";
   const catchcopyText = data?.catchcopy || "";
   const heroImage = data?.heroImage;

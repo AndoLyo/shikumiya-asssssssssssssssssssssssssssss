@@ -11,7 +11,7 @@ const defaultSocialLinks = [
 
 export default function Footer() {
   const data = useSiteData();
-  const artistName = data?.artistName || "YUKI";
+  const artistName = data?.artistName || "Sora";
   const socialLinks = defaultSocialLinks;
   return (
     <footer

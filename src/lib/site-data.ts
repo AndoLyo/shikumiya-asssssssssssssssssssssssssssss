@@ -1,0 +1,21 @@
+export type SiteData = {
+  artistName: string;
+  subtitle?: string;
+  catchcopy?: string;
+  heroImage?: string;
+  profileImage?: string;
+  bio?: string;
+  motto?: string;
+  email?: string;
+  location?: string;
+  artStyle?: string;
+  tools?: string[];
+  skills?: string[];
+  stats?: string[];
+  works: { src: string; title: string }[];
+  snsX?: string;
+  snsInstagram?: string;
+  snsPixiv?: string;
+  snsNote?: string;
+  snsOther?: string;
+};
