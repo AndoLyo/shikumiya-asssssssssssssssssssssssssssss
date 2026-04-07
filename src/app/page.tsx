@@ -20,6 +20,7 @@ const siteData: SiteData = {
   profileImage: "/images/about.webp",
   bio: "xdscvSDVsvszdvsdvszvs",
   motto: "SDSDVsd",
+  email: "ryoya112@outlook.com",
   tools: ["SDvSvSADv", "ADSvADSDv"],
   works: [
     { src: "/images/work_02.webp", title: "作品 01" },
