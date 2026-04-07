@@ -1,27 +1,25 @@
 "use client";
 
-import { AtSign, Camera, Globe } from "lucide-react";
+import { AtSign, Camera } from "lucide-react";
 import { useSiteData } from "./SiteDataContext";
-
-const defaultSocialLinks = [
-  { icon: AtSign, href: "#", label: "Twitter" },
-  { icon: Camera, href: "#", label: "Instagram" },
-  { icon: Globe, href: "#", label: "Website" },
-];
 
 export default function Footer() {
   const data = useSiteData();
   const artistName = data?.artistName || "Sora";
-  const socialLinks = defaultSocialLinks;
+
+  const socialLinks = [
+    { icon: AtSign, href: data?.snsX || "https://x.com/sora_manga_test", label: "X (Twitter)" },
+    { icon: Camera, href: data?.snsInstagram || "https://instagram.com/sora_manga_test", label: "Instagram" },
+  ];
+
   return (
     <footer
       className="relative overflow-hidden"
       style={{
-        backgroundColor: "var(--cp-border)", // #1A1A1A — pure dark
+        backgroundColor: "var(--cp-border)",
         borderTop: "4px solid var(--cp-border)",
       }}
     >
-      {/* Halftone dot pattern on dark bg */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -31,7 +29,6 @@ export default function Footer() {
       />
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8 py-14">
-        {/* THE END — comic style */}
         <div className="flex flex-col items-center mb-10">
           <div
             className="relative px-10 py-5 text-center"
@@ -40,7 +37,6 @@ export default function Footer() {
               borderRadius: "2px",
             }}
           >
-            {/* Corner marks like a manga page end */}
             <span
               className="absolute top-1 left-1 w-4 h-4"
               style={{
@@ -96,7 +92,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Social links — manga panel icons */}
         <div className="flex justify-center gap-4 mb-10">
           {socialLinks.map((link) => {
             const Icon = link.icon;
@@ -104,6 +99,8 @@ export default function Footer() {
               <a
                 key={link.label}
                 href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={link.label}
                 className="group flex w-12 h-12 items-center justify-center transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px]"
                 style={{
@@ -123,23 +120,19 @@ export default function Footer() {
           })}
         </div>
 
-        {/* Divider */}
         <div
           className="w-full mb-6"
           style={{ height: "2px", backgroundColor: "rgba(255,255,255,0.1)" }}
         />
 
-        {/* Bottom row */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          {/* Logo text */}
           <span
             className="text-sm font-black uppercase tracking-wider"
             style={{ color: "rgba(255,255,255,0.6)" }}
           >
-            {artistName}<span style={{ color: "var(--cp-yellow)" }}>{data ? "" : "COMICS"}</span>
+            {artistName}
           </span>
 
-          {/* Nav links */}
           <nav className="flex gap-6">
             {["Works", "About", "Contact"].map((label) => (
               <a
@@ -153,16 +146,14 @@ export default function Footer() {
             ))}
           </nav>
 
-          {/* Copyright */}
           <p
             className="text-xs font-bold"
             style={{ color: "rgba(255,255,255,0.3)" }}
           >
-            © {new Date().getFullYear()} {artistName}. All rights reserved.
+            &copy; 2026 Sora. All rights reserved.
           </p>
         </div>
 
-        {/* Manga page number style */}
         <div className="absolute bottom-3 right-6 flex items-center gap-2">
           <div
             className="w-6 h-[2px]"

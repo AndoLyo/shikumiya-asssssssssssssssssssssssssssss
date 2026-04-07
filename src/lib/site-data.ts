@@ -6,12 +6,11 @@ export type SiteData = {
   profileImage?: string;
   bio?: string;
   motto?: string;
-  email?: string;
   location?: string;
   artStyle?: string;
   tools?: string[];
-  skills?: string[];
   stats?: string[];
+  skills?: string[];
   works: { src: string; title: string }[];
   snsX?: string;
   snsInstagram?: string;

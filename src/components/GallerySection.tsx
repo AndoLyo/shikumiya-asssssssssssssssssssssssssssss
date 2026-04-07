@@ -39,7 +39,7 @@ export default function GallerySection() {
           {displayed.map((work, i) => (
             <motion.div
               key={work.src}
-              className="relative aspect-square cursor-pointer overflow-hidden group"
+              className="relative aspect-[3/4] cursor-pointer overflow-hidden group"
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
