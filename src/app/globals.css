@@ -16,6 +16,18 @@
   --font-mono: var(--font-mono);
 }
 
+/* Comic Panel Template Variables */
+:root {
+  --cp-bg: #FFFEF5;
+  --cp-surface: #FFFFFF;
+  --cp-border: #1A1A1A;
+  --cp-text: #1A1A1A;
+  --cp-text-muted: #666666;
+  --cp-red: #E63946;
+  --cp-blue: #2563EB;
+  --cp-yellow: #FFC107;
+}
+
 /* Base */
 body {
   background: var(--color-background);
