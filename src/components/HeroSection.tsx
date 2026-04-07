@@ -121,7 +121,7 @@ export default function HeroSection() {
       {/* Star bursts — 10 total */}
       {starBurstsConfig.map((sb, i) => (
         <motion.div key={`star-${i}`} className="absolute pointer-events-none"
-          style={{ top: sb.top, bottom: (sb as Record<string, string | number>).bottom as string | undefined, left: sb.left, right: (sb as Record<string, string | number>).right as string | undefined }}
+          style={{ top: (sb as Record<string, unknown>).top as string | undefined, bottom: (sb as Record<string, unknown>).bottom as string | undefined, left: (sb as Record<string, unknown>).left as string | undefined, right: (sb as Record<string, unknown>).right as string | undefined }}
           animate={{ rotate: [0, 15, -15, 0], scale: [1, 1.15, 1] }}
           transition={{ duration: sb.duration, repeat: Infinity, ease: "easeInOut", delay: sb.delay }}>
           <StarBurst size={sb.size} color={sb.color} points={sb.points} />

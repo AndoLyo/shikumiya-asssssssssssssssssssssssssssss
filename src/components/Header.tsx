@@ -13,8 +13,7 @@ const navItems = [
 
 export default function Header() {
   const data = useSiteData();
-  const artistName = data?.artistName || "MANGA";
-  const artistNameAccent = data ? "" : "PORT";
+  const artistName = data?.artistName || "Sora";
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -26,110 +25,110 @@ export default function Header() {
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
+    return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
   return (
     <header
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-200"
       style={{
-        backgroundColor: scrolled ? "var(--cp-bg)" : "var(--cp-bg)",
+        backgroundColor: "var(--cp-bg)",
         borderBottom: "3px solid var(--cp-border)",
         boxShadow: scrolled ? "0 4px 0 var(--cp-border)" : "none",
         backgroundImage: `radial-gradient(circle, var(--cp-border) 1px, transparent 1px)`,
         backgroundSize: "16px 16px",
-        backgroundRepeat: "repeat",
       }}
     >
-      {/* Halftone overlay wash so text is legible */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ backgroundColor: "rgba(255,254,245,0.88)" }}
-      />
+      <div className="absolute inset-0 pointer-events-none" style={{ backgroundColor: "rgba(255,254,245,0.88)" }} />
 
       <div className="relative mx-auto flex max-w-6xl items-center justify-between px-5 sm:px-8 py-3">
-        {/* Logo — speech bubble shape via clip */}
+        {/* Logo with glow pulse */}
         <a href="#" className="flex items-center gap-3 group">
-          <div
+          <motion.div
             className="relative flex items-center justify-center px-4 py-2 transition-transform duration-200 group-hover:scale-105 group-hover:-rotate-2"
             style={{
               backgroundColor: "var(--cp-yellow)",
               border: "2.5px solid var(--cp-border)",
               borderRadius: "8px 8px 8px 0px",
-              boxShadow: "3px 3px 0 var(--cp-border)",
             }}
+            animate={{
+              boxShadow: [
+                "3px 3px 0 var(--cp-border)",
+                "3px 3px 10px rgba(255,193,7,0.4)",
+                "3px 3px 0 var(--cp-border)",
+              ],
+            }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           >
-            <Zap className="h-4 w-4 mr-1" style={{ color: "var(--cp-border)" }} />
+            <motion.div
+              animate={{ rotate: [0, 10, -10, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Zap className="h-4 w-4 mr-1" style={{ color: "var(--cp-border)" }} />
+            </motion.div>
             <span
               className="text-lg font-black tracking-tight uppercase"
               style={{ color: "var(--cp-text)", letterSpacing: "-0.02em" }}
             >
-              {artistName}<span style={{ color: "var(--cp-red)" }}>{artistNameAccent}</span>
+              {artistName}
             </span>
-            {/* Speech bubble tail */}
             <span
               className="absolute -bottom-[11px] left-3"
-              style={{
-                width: 0,
-                height: 0,
-                borderLeft: "10px solid transparent",
-                borderTop: "10px solid var(--cp-border)",
-                display: "block",
-              }}
+              style={{ width: 0, height: 0, borderLeft: "10px solid transparent", borderTop: "10px solid var(--cp-border)" }}
             />
             <span
               className="absolute -bottom-[8px] left-[13px]"
-              style={{
-                width: 0,
-                height: 0,
-                borderLeft: "8px solid transparent",
-                borderTop: "8px solid var(--cp-yellow)",
-                display: "block",
-              }}
+              style={{ width: 0, height: 0, borderLeft: "8px solid transparent", borderTop: "8px solid var(--cp-yellow)" }}
             />
-          </div>
+          </motion.div>
         </a>
 
-        {/* Desktop nav */}
+        {/* Desktop nav with enhanced hover */}
         <nav className="hidden md:flex items-center gap-2">
-          {navItems.map((item) => (
-            <a
+          {navItems.map((item, i) => (
+            <motion.a
               key={item.href}
               href={item.href}
-              className="relative px-4 py-2 text-sm font-black uppercase tracking-wider transition-all duration-150 hover:scale-105 hover:-rotate-1"
+              className="relative px-4 py-2 text-sm font-black uppercase tracking-wider"
               style={{ color: "var(--cp-text)" }}
+              whileHover={{
+                scale: 1.08,
+                rotate: -2,
+                backgroundColor: "var(--cp-yellow)",
+                borderRadius: "4px",
+              }}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: i * 0.1 }}
             >
-              <span className="relative z-10">{item.label}</span>
-              <span
-                className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-150"
-                style={{
-                  backgroundColor: "var(--cp-yellow)",
-                  border: "2px solid var(--cp-border)",
-                  borderRadius: "4px",
-                  boxShadow: "2px 2px 0 var(--cp-border)",
-                }}
-              />
-            </a>
+              {item.label}
+            </motion.a>
           ))}
-          <a
+          <motion.a
             href="#contact"
-            className="ml-4 px-6 py-2 text-sm font-black uppercase tracking-wider text-white transition-all duration-150 hover:scale-105 hover:-rotate-1"
+            className="ml-4 px-6 py-2 text-sm font-black uppercase tracking-wider text-white"
             style={{
               backgroundColor: "var(--cp-red)",
               border: "2.5px solid var(--cp-border)",
               borderRadius: "4px",
-              boxShadow: "3px 3px 0 var(--cp-border)",
             }}
+            whileHover={{ scale: 1.05, rotate: -1, x: -2, y: -2 }}
+            animate={{
+              boxShadow: [
+                "3px 3px 0 var(--cp-border)",
+                "3px 3px 10px rgba(230,57,70,0.4)",
+                "3px 3px 0 var(--cp-border)",
+              ],
+            }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
           >
             お問い合わせ！
-          </a>
+          </motion.a>
         </nav>
 
         {/* Mobile hamburger */}
-        <button
-          className="flex md:hidden items-center justify-center h-10 w-10 transition-transform hover:scale-110"
+        <motion.button
+          className="flex md:hidden items-center justify-center h-10 w-10"
           style={{
             backgroundColor: "var(--cp-yellow)",
             border: "2.5px solid var(--cp-border)",
@@ -139,9 +138,11 @@ export default function Header() {
           }}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="メニュー"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
         >
           {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
+        </motion.button>
       </div>
 
       {/* Mobile menu */}
@@ -165,19 +166,13 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 className="block py-5 text-2xl font-black uppercase tracking-wider"
-                style={{
-                  color: "var(--cp-text)",
-                  borderBottom: "2px solid var(--cp-border)",
-                }}
+                style={{ color: "var(--cp-text)", borderBottom: "2px solid var(--cp-border)" }}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.07 }}
                 onClick={() => setMobileOpen(false)}
               >
-                <span
-                  className="inline-block px-2"
-                  style={{ backgroundColor: i % 2 === 0 ? "var(--cp-yellow)" : "transparent" }}
-                >
+                <span className="inline-block px-2" style={{ backgroundColor: i % 2 === 0 ? "var(--cp-yellow)" : "transparent" }}>
                   {item.label}
                 </span>
               </motion.a>
