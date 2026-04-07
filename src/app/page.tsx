@@ -38,7 +38,7 @@ const siteData: SiteData = {
 export default function Home() {
   return (
     <SiteDataProvider data={siteData}>
-      <FloatingParticles count={50} />
+      <FloatingParticles count={80} />
       <MangaEffects />
       <ScrollProgress />
       <Header />
